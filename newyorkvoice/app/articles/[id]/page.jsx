@@ -3,12 +3,13 @@ import { supabase } from '@/lib/client'
 import Link from 'next/link'
 
 const ArticlePage = async ( {params }) => {
-    const {id} = await params
+    const {id} = params
 
     const {data: article, error}  = await supabase
     .from("Articles")
     .select()
     .eq('id', id)
+    .single()
 
     if (error) {
         console.error(error)
