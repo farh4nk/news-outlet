@@ -1,15 +1,5 @@
-import "./globals.css";
-import {FaBars, FaSearch} from 'react-icons/fa'
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
+import './globals.css'
+import TopBar from './components/TopBar';
 
 export const metadata = {
   title: "New York Voice",
@@ -19,44 +9,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-      className="bg-white text-black"
-      >
-        <header className="bg-green-600 px-6 py-3 border-b-4 border-black">
-  <div className="max-w-screen-xl mx-auto flex items-center justify-between">
-    {/* Left side */}
-    <div className="flex items-center gap-6 pl-4">
-      <button className="text-black text-2xl">
-        <FaBars />
-      </button>
-      <button className="bg-black text-white px-3 py-1 text-sm font-semibold">
-        LOGIN
-      </button>
-    </div>
-
-    {/* Center: Logo */}
-    <div className="flex items-center justify-center">
-      <div className="w-14 h-14 rounded-full bg-red-500 flex items-center justify-center text-white font-bold">
-        LOGO
-      </div>
-    </div>
-
-    {/* Right side */}
-    <div className="flex items-center gap-4 pr-4">
-      <FaSearch className="text-black" />
-      <input
-        type="text"
-        placeholder="SEARCH"
-        className="border border-black px-3 py-1 text-black placeholder-black bg-transparent focus:outline-none"
-      />
-    </div>
-  </div>
-</header>
-
+      <body className="bg-white text-black">
+        <TopBar /> {/* This is now a client component */}
         <main className="px-4 py-6">
           {children}
         </main>
       </body>
     </html>
-  );
+  )
 }
